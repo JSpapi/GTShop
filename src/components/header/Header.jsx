@@ -4,9 +4,10 @@ import Categories from "./Categories";
 import Navbar from "./Navbar";
 import s from "./Header.module.scss";
 import { useLocation } from "react-router-dom";
-
-import { miceBg, mainBg, secondaryBg, review } from "../../assets/";
+import { HiMenuAlt1 } from "react-icons/hi";
+import { miceBg, mainBg, secondaryBg, review, logo } from "../../assets/";
 import HeaderTitle from "./HeaderTitle";
+import { getContext } from "../../Context";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -40,8 +41,18 @@ const Header = () => {
     }
   };
 
+  const {setShowSidebar} = getContext()
+
   return (
-    <header style={changeHeaderBg()}>
+    <header style={changeHeaderBg()} className={`relative`}>
+      <div className={`flex items-center justify-center md:hidden py-5`}>
+        <button className={`absolute left-[30px] top-[40px]`} onClick={()=> setShowSidebar(true)}>
+          <HiMenuAlt1 size={30} />
+        </button>
+        <div className={`w-[60px]`}>
+          <img src={logo} alt="logo" className={`w-full`} />
+        </div>
+      </div>
       <Navbar />
       <div className="container">
         <HeaderTitle />

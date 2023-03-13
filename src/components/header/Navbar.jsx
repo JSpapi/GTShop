@@ -122,7 +122,7 @@ const MobileNavbar = ({ setShowSearch }) => {
               }
             >
               {icon}
-              {name}
+              <span className={`xs:text-[16px] text-[14px]`}>{name}</span>
             </NavLink>
           </li>
         ))}
@@ -193,13 +193,21 @@ const SideBar = () => {
     },
   ];
 
+  const { socialMedia, setShowSidebar, showSidebar } = getContext();
+
   return (
     <div
-      className={`fixed h-screen w-full left-0 top-0 md:hidden block bg-[#00000087]`}
+      className={`fixed h-screen w-full left-0 top-0 md:hidden block bg-[#00000087] ${
+        showSidebar ? "translate-x-0" : "-translate-x-full"
+      } duration-[.5s] transition-all`}
+      onClick={() => setShowSidebar(false)}
     >
       <div className={`bg-black h-full w-[80%] p-6`}>
         <div>
-          <button className={`font-thin text-[50px] leading-[60px]`}>
+          <button
+            className={`font-thin text-[50px] leading-[60px]`}
+            onClick={() => setShowSidebar(false)}
+          >
             &times;
           </button>
         </div>
@@ -214,16 +222,51 @@ const SideBar = () => {
                 sideBarLinks.length - 1 === index ? "pb-0" : "pb-6"
               }`}
               key={id}
+              style={({ isActive }) =>
+                isActive ? { color: "#bb0808" } : { color: "#fff" }
+              }
+              onClick={() => setShowSidebar(false)}
             >
               {name}
             </NavLink>
           ))}
         </div>
         <div className={`pt-5 pb-10 border-b-[1px] border-danger`}>
-          <h4>Мы в социальных сетях</h4>
-          <div>
-            
+          <h4
+            className={`text-[18px] font-medium leading-[24px] text-white mb-3`}
+          >
+            Мы в социальных сетях
+          </h4>
+          <div className={` flex items-center justify-start gap-5`}>
+            {socialMedia.map(({ id, path, icon }) => (
+              <a href={path} key={id}>
+                {icon}
+              </a>
+            ))}
           </div>
+        </div>
+
+        <div className={`pt-5`}>
+          <h4
+            className={`text-[18px] font-medium leading-[24px] text-white mb-3`}
+          >
+            Контакты
+          </h4>
+          <div className={`flex flex-col items-start gap-3`}>
+            <a
+              href="mailto:GtStore@gmail.com"
+              className={`font-light text-[14px]`}
+            >
+              GtStore@gmail.com
+            </a>
+            <a href="tel:998941231234" className={`font-light text-[14px]`}>
+              +99894 123 12 34
+            </a>
+          </div>
+
+          <p className={`font-light text-[13px] mt-5`}>
+            {new Date().getFullYear()} &copy; Ahror Kurban
+          </p>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./Header.module.scss";
-import { logo } from "../../assets";
 import { useLocation } from "react-router-dom";
 const HeaderTitle = () => {
   const { pathname } = useLocation();
@@ -37,10 +36,6 @@ const HeaderTitle = () => {
 
   return (
     <div className={`${s.headerTitle} w-full text-center  mt-5 md:mt-36`}>
-      <div className={`mx-auto w-[60px] md:hidden block mb-3`}>
-        <img src={logo} alt="logo" className={`w-full`}/>
-      </div>
-
       <h1
         className={`font-medium text-white  text-[30px] leading-[40px] lg:text-[45px] lg:leading-[50px] uppercase`}
       >
