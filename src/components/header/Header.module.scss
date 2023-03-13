@@ -1,0 +1,40 @@
+.moreArrows {
+  width: 75px;
+  height: 65px;
+  cursor: pointer;
+
+  polygon {
+    fill: #fff;
+    transition: all 0.2s ease-out;
+
+    &.arrowBottom {
+      transform: translateY(-18px);
+    }
+    &.arrowTop {
+      transform: translateY(18px);
+    }
+  }
+}
+
+.moreInfo:hover {
+  polygon {
+    &.arrowBottom {
+      transform: translateY(0px);
+    }
+    &.arrowTop {
+      transform: translateY(0px);
+    }
+  }
+}
+
+polygon {
+  fill: #fff;
+  transition: all 0.2s ease-out;
+
+  &.arrowMiddle {
+    opacity: 0.75;
+  }
+  &.arrowBottom {
+    opacity: 0.5;
+  }
+}

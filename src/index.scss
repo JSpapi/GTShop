@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black-gradient: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+  --shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  --font: "Inter", sans-serif;
+}
+
+.App {
+  font-family: var(--font);
+  width: 100%;
+  background: linear-gradient(
+    to right bottom,
+    #000f31,
+    #000f2c,
+    #010e27,
+    #010e22,
+    #020d1d
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.card-gradient:hover {
+  background: var(--black-gradient);
+  box-shadow: var(--shadow);
+}
+
+footer {
+  margin-top: auto;
+}
+
+.te{
+  color: #555;
+}
