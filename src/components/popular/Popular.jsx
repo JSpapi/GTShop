@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
 const Popular = () => {
   return (
-	 <div>Popular</div>
-  )
-}
+    <div>
+      <div className="">
+        <h2>Самые популярные товары в наших магазинах</h2>
 
-export default Popular
+        
+      </div>
+    </div>
+  );
+};
+
+export default Popular;

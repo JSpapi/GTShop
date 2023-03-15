@@ -14,17 +14,22 @@
   --font: "Inter", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .App {
   font-family: var(--font);
   width: 100%;
-  background: linear-gradient(
-    to right bottom,
-    #000f31,
-    #000f2c,
-    #010e27,
-    #010e22,
-    #020d1d
+  background-image: linear-gradient(
+    to right top,
+    #050e1c,
+    #00121a,
+    #001414,
+    #02140c,
+    #0f1306
   );
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,8 +49,4 @@
 
 footer {
   margin-top: auto;
-}
-
-.te{
-  color: #555;
 }

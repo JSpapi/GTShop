@@ -1,6 +1,5 @@
 import React from "react";
 import Search from "../search/Search";
-import Categories from "./Categories";
 import Navbar from "./Navbar";
 import s from "./Header.module.scss";
 import { useLocation } from "react-router-dom";
@@ -45,6 +44,7 @@ const Header = () => {
 
   return (
     <header style={changeHeaderBg()} className={`relative`}>
+      {/* !MOBILE SIDEBAR HANDLER */}
       <div className={`flex items-center justify-center md:hidden py-5`}>
         <button className={`absolute left-[30px] top-[40px]`} onClick={()=> setShowSidebar(true)}>
           <HiMenuAlt1 size={30} />
@@ -57,7 +57,6 @@ const Header = () => {
       <div className="container">
         <HeaderTitle />
         <Search />
-        {/* <Categories /> */}
       </div>
     </header>
   );

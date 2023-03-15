@@ -94,7 +94,7 @@ const MobileNavbar = ({ setShowSearch }) => {
     },
     {
       id: "mobile-sales",
-      icon: <AiOutlineHome size={25} cursor="pointer" />,
+      icon: <AiOutlineDollar size={25} cursor="pointer" />,
       name: "Распродажа",
       path: "/sales",
     },
@@ -126,43 +126,6 @@ const MobileNavbar = ({ setShowSearch }) => {
             </NavLink>
           </li>
         ))}
-        {/* <li>
-          <NavLink
-            className={`flex flex-col justify-center items-center`}
-            to={"/"}
-          >
-            <AiOutlineHome size={25} cursor="pointer" />
-            <span className={`text-[12px]`}>Главная</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className={`flex flex-col justify-center items-center`}>
-            <BsSearch
-              size={25}
-              cursor="pointer"
-              onClick={() => setShowSearch(true)}
-            />
-            <span className={`text-[12px]`}>Поиск</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={`flex flex-col justify-center items-center`}
-            to={"/sales"}
-          >
-            <AiOutlineDollar size={25} cursor="pointer" />
-            <span className={`text-[12px]`}>Распродажа</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={`flex flex-col justify-center items-center`}
-            to={"/cart"}
-          >
-            <BsFillCartFill size={25} cursor="pointer" />
-            <span className={`text-[12px]`}>Корзина</span>
-          </NavLink>
-        </li> */}
       </ul>
     </div>
   );
