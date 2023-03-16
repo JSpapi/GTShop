@@ -18,6 +18,14 @@
     #6d6d6d -78.47%,
     #11101d 91.61%
   );
+  --gray-gradient: linear-gradient(
+    to right,
+    #0e1114,
+    #0c0e11,
+    #0a0a0d,
+    #070708,
+    #030303
+  );
 }
 
 html {
@@ -55,14 +63,15 @@ html {
 
 footer {
   margin-top: auto;
+  background: var(--gray-gradient);
 }
 
-.product-card:hover{
+.product-card:hover {
   background: var(--card-bg);
 }
 
 @media (max-width: 1024px) {
-  .product-card{
+  .product-card {
     background: var(--card-bg);
   }
 }
