@@ -5,9 +5,10 @@ import s from "./Header.module.scss";
 import { BsFillCartFill, BsSearch } from "react-icons/bs";
 import { AiOutlineHome, AiOutlineDollar } from "react-icons/ai";
 import { getContext } from "../../Context";
+import { useCart } from "react-use-cart";
 
 // !DESKTOP NAVBAR
-const DesktopNavbar = ({ setShowSearch }) => {
+const DesktopNavbar = ({ setShowSearch, items }) => {
   const DesktopLinks = [
     {
       id: "home",
@@ -51,10 +52,11 @@ const DesktopNavbar = ({ setShowSearch }) => {
           <li key={id}>
             <NavLink
               to={path}
-              style={({ isActive }) =>
-                isActive ? { color: "#bb0808" } : { color: "#fff" }
+              className={({ isActive }) =>
+                isActive
+                  ? "font-normal text-[14px] lg:text-[16px] text-active"
+                  : "font-normal text-[14px] lg:text-[16px] text-white"
               }
-              className={`font-normal text-[14px] lg:text-[16px]`}
             >
               {name}
             </NavLink>
@@ -70,15 +72,16 @@ const DesktopNavbar = ({ setShowSearch }) => {
             onClick={() => setShowSearch(true)}
           />
         </button>
-        <NavLink to={`/cart`}>
+        <NavLink to={`/cartPage`}>
           <BsFillCartFill size={20} cursor="pointer" />
+          <span>{items.length}</span>
         </NavLink>
       </div>
     </div>
   );
 };
 // !MOBILE NAVBAR
-const MobileNavbar = ({ setShowSearch }) => {
+const MobileNavbar = ({ setShowSearch, items }) => {
   const mobileNavbar = [
     {
       id: "mobile-home",
@@ -102,7 +105,7 @@ const MobileNavbar = ({ setShowSearch }) => {
       id: "mobile-cart",
       icon: <BsFillCartFill size={25} cursor="pointer" />,
       name: "Корзина",
-      path: "/cart",
+      path: "/cartPage",
     },
   ];
 
@@ -112,17 +115,19 @@ const MobileNavbar = ({ setShowSearch }) => {
         {mobileNavbar.map(({ id, icon, name, path }) => (
           <li key={id}>
             <NavLink
-              className={`flex flex-col justify-center items-center`}
+              className={({ isActive }) =>
+                isActive
+                  ? "flex flex-col justify-center items-center text-active"
+                  : "flex flex-col justify-center items-center text-white"
+              }
               to={path}
               onClick={
                 id === "mobile-search" ? () => setShowSearch(true) : null
               }
-              style={({ isActive }) =>
-                isActive ? { color: "#bb0808" } : { color: "#fff" }
-              }
             >
               {icon}
               <span className={`xs:text-[16px] text-[14px]`}>{name}</span>
+              {id === "mobile-cart" ? <span>{items.length}</span> : null}
             </NavLink>
           </li>
         ))}
@@ -181,13 +186,16 @@ const SideBar = () => {
           {sideBarLinks.map(({ id, name, path }, index) => (
             <NavLink
               to={path}
-              className={`text-[16px] font-normal leading-[20px] inline-block  ${
-                sideBarLinks.length - 1 === index ? "pb-0" : "pb-6"
-              }`}
-              key={id}
-              style={({ isActive }) =>
-                isActive ? { color: "#bb0808" } : { color: "#fff" }
+              className={({ isActive }) =>
+                isActive
+                  ? `text-[16px] font-normal leading-[20px] inline-block text-active ${
+                      sideBarLinks.length - 1 === index ? "pb-0" : "pb-6"
+                    }`
+                  : `text-[16px] font-normal leading-[20px] inline-block text-white ${
+                      sideBarLinks.length - 1 === index ? "pb-0" : "pb-6"
+                    }`
               }
+              key={id}
               onClick={() => setShowSidebar(false)}
             >
               {name}
@@ -238,13 +246,15 @@ const SideBar = () => {
 
 const Navbar = () => {
   const { setShowSearch } = getContext();
+  const { items } = useCart();
+
   return (
     <nav
       className={` w-full py-2 text-white bg-zinc-900 md:bg-transparent  bottom-0 md:bottom-auto fixed md:top-0 z-[3]`}
     >
       <div className="container">
-        <DesktopNavbar setShowSearch={setShowSearch} />
-        <MobileNavbar setShowSearch={setShowSearch} />
+        <DesktopNavbar setShowSearch={setShowSearch} items={items} />
+        <MobileNavbar setShowSearch={setShowSearch} items={items} />
         <SideBar />
       </div>
     </nav>

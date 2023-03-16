@@ -47,19 +47,20 @@ const Categories = () => {
         >
           {categories.map(({ id, name, img }) => (
             <NavLink
-              className={` flex flex-col justify-center items-center group/item`}
+              className={({ isActive }) =>
+                isActive
+                  ? "flex flex-col justify-center items-center group/item text-active"
+                  : "flex flex-col justify-center items-center group/item text-white"
+              }
               to={`/categories/${id}`}
               key={id}
-              style={({ isActive }) =>
-                isActive ? { color: "bb0808" } : { color: "#fff" }
-              }
             >
               <img
                 src={img}
                 alt={name}
                 className={`w-auto h-[75px] object-contain`}
               />
-              <p className="font-normal text-[14px] leading-[20px] mt-4 group/edit group-hover/item:text-danger">
+              <p className="font-normal text-[14px] leading-[20px] mt-4 group/edit group-hover/item:text-active">
                 {name}
               </p>
             </NavLink>

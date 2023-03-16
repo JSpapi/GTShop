@@ -8,6 +8,7 @@ import ChosenCategory from "./ChosenCategory";
 import CartPage from "./CartPage";
 import Reviews from "./Reviews";
 import CyberSport from "./CyberSport";
+import Products from "./Products";
 
 export {
   Comunity,
@@ -20,4 +21,5 @@ export {
   CartPage,
   Reviews,
   CyberSport,
+  Products,
 };

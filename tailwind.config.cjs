@@ -9,6 +9,7 @@ module.exports = {
         // secondary: "#555",
         secondary: "#555",
         danger: "#bb0808",
+        active: "#0A3CDE",
       },
       fontFamily: ["Inter", "sans-serif"],
     },

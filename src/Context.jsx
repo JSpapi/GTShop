@@ -8,10 +8,17 @@ const Context = ({ children }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [totalProducts, setTotalProducts] = useState([]);
+  const [popularProducts, setPopularProducts] = useState([]);
+  const [bestSellers, setBestSellers] = useState([]);
+  const [newProducts, setNewProducts] = useState([]);
 
   const [fetchProducts, error, isLoading] = UseFetching(async () => {
     const response = await FetchServices.getAll();
     setTotalProducts(response.data);
+
+    setPopularProducts(response.data.slice(10, 26));
+    setBestSellers(response.data.slice(26, 42));
+    setNewProducts(response.data.slice(42, 58));
   });
 
   useEffect(() => {
@@ -36,8 +43,6 @@ const Context = ({ children }) => {
     },
   ];
 
-  // totalProducts.map(({category}) => console.log(category))
-
   return (
     <context.Provider
       value={{
@@ -50,6 +55,12 @@ const Context = ({ children }) => {
         setTotalProducts,
         error,
         isLoading,
+        popularProducts,
+        setPopularProducts,
+        bestSellers,
+        setBestSellers,
+        newProducts,
+        setNewProducts,
       }}
     >
       {children}

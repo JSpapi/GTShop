@@ -7,6 +7,7 @@ import { HiMenuAlt1 } from "react-icons/hi";
 import { miceBg, mainBg, secondaryBg, review, logo } from "../../assets/";
 import HeaderTitle from "./HeaderTitle";
 import { getContext } from "../../Context";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -40,24 +41,35 @@ const Header = () => {
     }
   };
 
-  const {setShowSidebar} = getContext()
+  const { setShowSidebar } = getContext();
 
   return (
     <header style={changeHeaderBg()} className={`relative`}>
       {/* !MOBILE SIDEBAR HANDLER */}
       <div className={`flex items-center justify-center md:hidden py-5`}>
-        <button className={`absolute left-[30px] top-[40px]`} onClick={()=> setShowSidebar(true)}>
+        <button
+          className={`absolute left-[30px] top-[40px]`}
+          onClick={() => setShowSidebar(true)}
+        >
           <HiMenuAlt1 size={30} />
         </button>
         <div className={`w-[60px]`}>
           <img src={logo} alt="logo" className={`w-full`} />
         </div>
       </div>
-      <Navbar />
-      <div className="container">
-        <HeaderTitle />
-        <Search />
-      </div>
+      <motion.div
+        className={`py-5`}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Navbar />
+        <div className="container">
+          <HeaderTitle />
+          <Search />
+        </div>
+      </motion.div>
     </header>
   );
 };
