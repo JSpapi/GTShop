@@ -1,5 +1,5 @@
 import React from "react";
-import { Categories, Footer, Header } from "../components";
+import { Categories, Footer, Header, Navbar } from "../components";
 import { Outlet, useLocation } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,18 +10,22 @@ const SharedLayout = () => {
       <CartProvider>
         <Header />
 
-        {pathname === "/sales" || pathname === "/" ? <Categories /> : null}
-        <div className="main">
-          <motion.div
-            className={`py-5`}
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+        <motion.div
+          // className={`py-5`}
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {pathname !== "/comunity" &&
+          pathname !== "/locations" &&
+          pathname !== "/reviews" ? (
+            <Categories />
+          ) : null}
+          <div className="main py-5">
             <Outlet />
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
         <Footer />
       </CartProvider>
     </>

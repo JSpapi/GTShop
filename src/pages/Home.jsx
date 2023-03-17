@@ -3,7 +3,7 @@ import { BestSellers, NewProducts, Popular } from "../components";
 import { getContext } from "../Context";
 const Home = () => {
   return (
-    <div className="py-5">
+    <div>
       <Popular title="Популярные" />
       <BestSellers title="Лидеры продаж" />
       <NewProducts title="Новые поступления" />

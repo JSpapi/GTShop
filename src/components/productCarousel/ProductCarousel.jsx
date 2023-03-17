@@ -44,7 +44,7 @@ const ProductCarousel = ({ products }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.3 }}
               className={`flex flex-col items-center justify-between h-[380px] p-5 `}
             >
               <div className={`max-w-[200px] max-h-[200px] h-full w-full`}>

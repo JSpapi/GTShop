@@ -44,29 +44,33 @@ const Header = () => {
   const { setShowSidebar } = getContext();
 
   return (
-    <header style={changeHeaderBg()} className={`relative`}>
+    <header>
       {/* !MOBILE SIDEBAR HANDLER */}
-      <div className={`flex items-center justify-center md:hidden py-5`}>
-        <button
-          className={`absolute left-[30px] top-[40px]`}
-          onClick={() => setShowSidebar(true)}
-        >
-          <HiMenuAlt1 size={30} />
-        </button>
-        <div className={`w-[60px]`}>
-          <img src={logo} alt="logo" className={`w-full`} />
-        </div>
-      </div>
+
       <motion.div
-        className={`py-5`}
+        className={`py-5 relative`}
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
+        style={changeHeaderBg()}
       >
+        <div className={`flex items-center justify-center md:hidden py-5`}>
+          <button
+            className={`absolute left-[30px] top-[40px]`}
+            onClick={() => setShowSidebar(true)}
+          >
+            <HiMenuAlt1 size={30} />
+          </button>
+          <div className={`w-[60px]`}>
+            <img src={logo} alt="logo" className={`w-full`} />
+          </div>
+        </div>
         <Navbar />
         <div className="container">
-          <HeaderTitle />
+          {pathname !== "/products" && pathname !== "/cartPage" ? (
+            <HeaderTitle />
+          ) : null}
           <Search />
         </div>
       </motion.div>

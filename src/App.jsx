@@ -28,7 +28,7 @@ function App() {
     </div>
   ) : (
     <div className="App text-white">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="async">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />

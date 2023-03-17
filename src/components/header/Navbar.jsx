@@ -57,6 +57,7 @@ const DesktopNavbar = ({ setShowSearch, items }) => {
                   ? "font-normal text-[14px] lg:text-[16px] text-active"
                   : "font-normal text-[14px] lg:text-[16px] text-white"
               }
+              onClick={() => scrollTo({ top: 0 })}
             >
               {name}
             </NavLink>
@@ -122,7 +123,9 @@ const MobileNavbar = ({ setShowSearch, items }) => {
               }
               to={path}
               onClick={
-                id === "mobile-search" ? () => setShowSearch(true) : null
+                id === "mobile-search"
+                  ? () => setShowSearch(true)
+                  : () => scrollTo({ top: 0 })
               }
             >
               {icon}

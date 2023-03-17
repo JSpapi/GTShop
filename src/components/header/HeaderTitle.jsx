@@ -35,7 +35,7 @@ const HeaderTitle = () => {
   };
 
   return (
-    <div className={`${s.headerTitle} w-full text-center  mt-5 md:mt-36`}>
+    <div className={`w-full text-center  mt-5 md:mt-36`}>
       <h1
         className={`font-medium text-white  text-[30px] leading-[40px] lg:text-[45px] lg:leading-[50px] uppercase`}
       >

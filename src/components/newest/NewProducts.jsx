@@ -16,6 +16,7 @@ const NewProducts = ({ title }) => {
         <NavLink
           className={`flex items-center gap-1 group/item  text-[16px] leading-[20px] md:text-[20px] md:leading-[24px]`}
           to={`/products`}
+          onClick={() => scrollTo({ top: 0 })}
         >
           <span>Посмотреть</span>
           <AiOutlineRight
