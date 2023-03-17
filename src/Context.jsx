@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { FaInstagram, FaFacebookSquare, FaTelegramPlane } from "react-icons/fa";
 import FetchServices from "./API/FetchServices";
 import UseFetching from "./hooks/UseFetching";
+import { getPageCount } from "./utils/PagesCount";
 const context = createContext();
 
 const Context = ({ children }) => {
@@ -11,15 +12,22 @@ const Context = ({ children }) => {
   const [popularProducts, setPopularProducts] = useState([]);
   const [bestSellers, setBestSellers] = useState([]);
   const [newProducts, setNewProducts] = useState([]);
+  const [productsPerPage, setProductsPerPage] = useState(8);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   const [fetchProducts, error, isLoading] = UseFetching(async () => {
     const response = await FetchServices.getAll();
-    setTotalProducts(response.data);
+    setTotalProducts(response.data.slice(0, 125));
+    setTotalPages(getPageCount(response.data, productsPerPage));
 
     setPopularProducts(response.data.slice(10, 26));
     setBestSellers(response.data.slice(26, 42));
     setNewProducts(response.data.slice(42, 58));
   });
+  const lastPageIndex = currentPage * productsPerPage;
+  const firstPageIndex = lastPageIndex - productsPerPage;
+  const CurrentProducts = totalProducts.slice(firstPageIndex, lastPageIndex);
 
   useEffect(() => {
     fetchProducts();
@@ -61,6 +69,13 @@ const Context = ({ children }) => {
         setBestSellers,
         newProducts,
         setNewProducts,
+        productsPerPage,
+        setProductsPerPage,
+        currentPage,
+        setCurrentPage,
+        totalPages,
+        setTotalPages,
+        CurrentProducts,
       }}
     >
       {children}

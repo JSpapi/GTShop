@@ -8,6 +8,7 @@ import Search from "./search/Search";
 import Header from "./header/Header";
 import ProductCarousel from "./productCarousel/ProductCarousel";
 import productBtn from "./ui/button/ProductBtn";
+import Pagination from "./ui/pagination/Pagination";
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   Header,
   ProductCarousel,
   productBtn,
+  Pagination,
 };

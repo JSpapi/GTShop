@@ -1,13 +1,15 @@
 import React from "react";
+import { Pagination } from "../components";
 import ProductList from "../components/productList/ProductList";
 import { getContext } from "../Context";
 
 const Sales = () => {
-  const { totalProducts } = getContext();
+  const { CurrentProducts } = getContext();
   return (
     <div>
       <div className="container">
-        <ProductList products={totalProducts}/>
+        <ProductList products={CurrentProducts} />
+        <Pagination />
       </div>
     </div>
   );

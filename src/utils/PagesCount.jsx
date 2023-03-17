@@ -1,3 +1,3 @@
-export const getPageCount = (limit, totalCount) => {
-  return Math.ceil(totalCount / limit);
+export const getPageCount = (totalProducts, productsPerPage) => {
+  return Math.ceil(totalProducts.slice(0, 125).length / productsPerPage);
 };
