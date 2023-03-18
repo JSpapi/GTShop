@@ -1,41 +1,47 @@
-import { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import SharedLayout from "./components/SharedLayout";
 import { getContext } from "./Context";
 import { Home } from "./pages";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { routes } from "./routes";
+import { NetworkError, SharedLayout } from "./components";
+import { loader } from "./assets";
 function App() {
-  const { error } = getContext();
   const location = useLocation();
+  const { error, isLoading } = getContext();
 
   const SetRoute = () =>
     routes.map(({ id, path, element }) => (
       <Route key={id} path={path} element={element} />
     ));
-  return error ? (
-    <div className="w-full h-screen flex justify-center items-center flex-col">
-      <h1 className="text-[30px] font-media leading-[45px] mb-4">
-        Ой что то пошло не так: {error}
-      </h1>
-      <div className="w-[600px] ">
-        <img
-          src="https://m.media-amazon.com/images/I/71nMCpy19UL.jpg"
-          alt="error"
-          className="w-full rounded-lg"
-        />
-      </div>
-    </div>
-  ) : (
+
+  // !CHECKING FOR LOADING DATA OR GETTING NETWORK ERROR
+  const errorHandler = () => {
+    if (error) {
+      return <NetworkError />;
+    } else {
+      return (
+        <AnimatePresence mode="async">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<SharedLayout />}>
+              <Route index element={<Home />} />
+              {SetRoute()}
+            </Route>
+          </Routes>
+        </AnimatePresence>
+      );
+    }
+  };
+  return (
     <div className="App text-white">
-      <AnimatePresence mode="async">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<SharedLayout />}>
-            <Route index element={<Home />} />
-            {SetRoute()}
-          </Route>
-        </Routes>
-      </AnimatePresence>
+      {isLoading ? (
+        <div
+          className={`fixed top-0 left-0 bottom-0 right-0 bg-black flex justify-center items-center`}
+        >
+          <img src={loader} alt="loader" className={`w-[300px]`} />
+        </div>
+      ) : (
+        errorHandler()
+      )}
     </div>
   );
 }

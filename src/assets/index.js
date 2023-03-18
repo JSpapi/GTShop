@@ -2,6 +2,7 @@ import mainBg from "./images/main-bg.jpg";
 import secondaryBg from "./images/secondary-bg.jpg";
 import miceBg from "./images/mice-bg.jpg";
 import logo from "./images/logo.png";
+import loader from "./images/loader.svg";
 // import keybords from "./images/keybords.png";
 import review from "./images/review-bg.jpg";
 import laptop from "./images/categories/laptop.png";
@@ -21,4 +22,5 @@ export {
   mice,
   headsets,
   streaming,
+  loader,
 };

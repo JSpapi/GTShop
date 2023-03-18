@@ -4,12 +4,17 @@ import ProductList from "../components/productList/ProductList";
 import { getContext } from "../Context";
 
 const Sales = () => {
-  const { CurrentProducts } = getContext();
+  const { salesPageProducts, salesPage, setSalesPage, totalPages } =
+    getContext();
   return (
     <div>
       <div className="container">
-        <ProductList products={CurrentProducts} />
-        <Pagination />
+        <ProductList products={salesPageProducts} />
+        <Pagination
+          currentPage={salesPage}
+          setCurrentPage={setSalesPage}
+          totalPages={totalPages}
+        />
       </div>
     </div>
   );

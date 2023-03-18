@@ -40,6 +40,13 @@ const Header = () => {
         };
     }
   };
+  const checkingPathname =
+    pathname === "/" ||
+    pathname === "/comunity" ||
+    pathname === "/locations" ||
+    pathname === "/sales" ||
+    pathname === "/reviews" ||
+    pathname === "/cybersport";
 
   const { setShowSidebar } = getContext();
 
@@ -68,9 +75,7 @@ const Header = () => {
         </div>
         <Navbar />
         <div className="container">
-          {pathname !== "/products" && pathname !== "/cartPage" ? (
-            <HeaderTitle />
-          ) : null}
+          {checkingPathname ? <HeaderTitle /> : null}
           <Search />
         </div>
       </motion.div>

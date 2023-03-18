@@ -9,6 +9,8 @@ import Header from "./header/Header";
 import ProductCarousel from "./productCarousel/ProductCarousel";
 import productBtn from "./ui/button/ProductBtn";
 import Pagination from "./ui/pagination/Pagination";
+import NetworkError from "./networkError/NetworkError";
+import SharedLayout from "./SharedLayout";
 
 export {
   Navbar,
@@ -22,4 +24,6 @@ export {
   ProductCarousel,
   productBtn,
   Pagination,
+  NetworkError,
+  SharedLayout,
 };

@@ -5,6 +5,10 @@ import { CartProvider } from "react-use-cart";
 import { AnimatePresence, motion } from "framer-motion";
 const SharedLayout = () => {
   const { pathname } = useLocation();
+  const checkingPathname =
+    pathname !== "/comunity" &&
+    pathname !== "/locations" &&
+    pathname !== "/reviews";
   return (
     <>
       <CartProvider>
@@ -17,11 +21,7 @@ const SharedLayout = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {pathname !== "/comunity" &&
-          pathname !== "/locations" &&
-          pathname !== "/reviews" ? (
-            <Categories />
-          ) : null}
+          {checkingPathname ? <Categories /> : null}
           <div className="main py-5">
             <Outlet />
           </div>

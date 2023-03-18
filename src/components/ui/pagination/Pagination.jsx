@@ -2,8 +2,7 @@ import React from "react";
 import { getContext } from "../../../Context";
 import { usePagination } from "../../../hooks/UsePagination";
 
-const Pagination = () => {
-  const { currentPage, setCurrentPage, totalPages } = getContext();
+const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
   const pagesArray = usePagination(totalPages);
 
   return (
@@ -12,7 +11,9 @@ const Pagination = () => {
         <a
           href="#products"
           key={page}
-          className={`py-2 px-4 rounded-md ${page === currentPage ? 'bg-active' : 'bg-danger'} text-white text-[14px] leading-[20px]`}
+          className={`py-2 px-4 rounded-md ${
+            currentPage === page ? "bg-active" : "bg-danger"
+          } text-white text-[14px] leading-[20px]`}
           onClick={() => setCurrentPage(page)}
         >
           {page}

@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { FaInstagram, FaFacebookSquare, FaTelegramPlane } from "react-icons/fa";
 import FetchServices from "./API/FetchServices";
 import UseFetching from "./hooks/UseFetching";
@@ -13,7 +19,8 @@ const Context = ({ children }) => {
   const [bestSellers, setBestSellers] = useState([]);
   const [newProducts, setNewProducts] = useState([]);
   const [productsPerPage, setProductsPerPage] = useState(8);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPage, setProductsPage] = useState(1);
+  const [salesPage, setSalesPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
   const [fetchProducts, error, isLoading] = UseFetching(async () => {
@@ -25,10 +32,13 @@ const Context = ({ children }) => {
     setBestSellers(response.data.slice(26, 42));
     setNewProducts(response.data.slice(42, 58));
   });
-  const lastPageIndex = currentPage * productsPerPage;
-  const firstPageIndex = lastPageIndex - productsPerPage;
-  const CurrentProducts = totalProducts.slice(firstPageIndex, lastPageIndex);
-
+  const getPage = (page) => {
+    const lastPageIndex = page * productsPerPage;
+    const firstPageIndex = lastPageIndex - productsPerPage;
+    return totalProducts.slice(firstPageIndex, lastPageIndex);
+  };
+  const mainPageProducts = getPage(productsPage);
+  const salesPageProducts = getPage(salesPage);
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -71,11 +81,14 @@ const Context = ({ children }) => {
         setNewProducts,
         productsPerPage,
         setProductsPerPage,
-        currentPage,
-        setCurrentPage,
+        productsPage,
+        setProductsPage,
         totalPages,
         setTotalPages,
-        CurrentProducts,
+        mainPageProducts,
+        salesPage,
+        setSalesPage,
+        salesPageProducts,
       }}
     >
       {children}

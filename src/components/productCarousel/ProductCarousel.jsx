@@ -77,7 +77,7 @@ const ProductCarousel = ({ products }) => {
                     }}
                     onClick={(e) => removeProduct(e, product._id)}
                   >
-                    Удалить из Корзинки
+                    Удалить из Корзины
                   </ProductBtn>
                 )}
               </div>
