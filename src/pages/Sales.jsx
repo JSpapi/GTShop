@@ -1,6 +1,5 @@
 import React from "react";
-import { Pagination } from "../components";
-import ProductList from "../components/productList/ProductList";
+import { Pagination, ProductList } from "../components";
 import { getContext } from "../Context";
 
 const Sales = () => {

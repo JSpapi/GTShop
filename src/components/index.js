@@ -7,6 +7,8 @@ import Popular from "./popular/Popular";
 import Search from "./search/Search";
 import Header from "./header/Header";
 import ProductCarousel from "./productCarousel/ProductCarousel";
+import ProductList from "./productList/ProductList";
+import ProductItem from "./productList/ProductItem";
 import productBtn from "./ui/button/ProductBtn";
 import Pagination from "./ui/pagination/Pagination";
 import NetworkError from "./networkError/NetworkError";
@@ -26,4 +28,6 @@ export {
   Pagination,
   NetworkError,
   SharedLayout,
+  ProductList,
+  ProductItem,
 };

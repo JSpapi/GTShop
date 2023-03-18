@@ -54,6 +54,7 @@ const Categories = () => {
               }
               to={`/categories/${id}`}
               key={id}
+              onClick={() => scrollTo({ top: 0 })}
             >
               <img
                 src={img}

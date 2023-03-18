@@ -1,12 +1,24 @@
-import React from 'react'
-import { NavLink, useLocation } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
+import { ProductList } from "../components";
+
+import { getContext } from "../Context";
 
 const ChosenCategory = () => {
-  const tesst = useLocation();
-  console.log(tesst);
-  return (
-	 <div>ChosenCategory</div>
-  )
-}
+  const { totalProducts } = getContext();
+  const { type } = useParams();
+  const filteredByCategory = totalProducts.filter(
+    (product) => product.category === type
+  );
 
-export default ChosenCategory
+  console.log(filteredByCategory);
+  return (
+    <div>
+      <div className="container">
+        <ProductList products={filteredByCategory} />
+      </div>
+    </div>
+  );
+};
+
+export default ChosenCategory;
