@@ -4,18 +4,23 @@ import { BsSearch } from "react-icons/bs";
 import { getContext } from "../../Context";
 import { useNavigate } from "react-router-dom";
 const Search = () => {
-  const { showSearch, setShowSearch } = getContext();
+  const { showSearch, setShowSearch, searchQuery, setSearchQuery } =
+    getContext();
   const navgiate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navgiate(`/searched/test`);
+    navgiate(`/searched/${searchQuery}`);
     setShowSearch(false);
+    setSearchQuery("");
   };
 
   return (
     showSearch && (
-      <div className={`${s.root} z-[5] px-3`} onClick={() => setShowSearch(false)}>
+      <div
+        className={`${s.root} z-[5] px-3`}
+        onClick={() => setShowSearch(false)}
+      >
         <div
           className="max-w-[800px] mx-auto bg-secondary py-2 px-3 flex items-center rounded-xl "
           onClick={(e) => e.stopPropagation()}
@@ -29,6 +34,9 @@ const Search = () => {
               type="text"
               placeholder="Search..."
               className="outline-none border-none bg-transparent w-full"
+              value={searchQuery}
+              autoFocus
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </form>
           <button

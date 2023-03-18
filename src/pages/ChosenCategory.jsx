@@ -11,7 +11,6 @@ const ChosenCategory = () => {
     (product) => product.category === type
   );
 
-  console.log(filteredByCategory);
   return (
     <div>
       <div className="container">

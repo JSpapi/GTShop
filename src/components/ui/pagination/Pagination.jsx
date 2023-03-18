@@ -6,7 +6,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
   const pagesArray = usePagination(totalPages);
 
   return (
-    <div className={`pt-8 pb-24 md:py-8 flex flex-wrap justify-center gap-5`}>
+    <div className={`pt-8 flex flex-wrap justify-center gap-5`}>
       {pagesArray.map((page, indx) => (
         <a
           href="#products"

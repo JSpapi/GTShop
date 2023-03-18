@@ -248,7 +248,7 @@ const SideBar = () => {
 };
 
 const Navbar = () => {
-  const { setShowSearch } = getContext();
+  const { setShowSearch, searchInput } = getContext();
   const { items } = useCart();
 
   return (
@@ -256,8 +256,16 @@ const Navbar = () => {
       className={` w-full py-2 text-white bg-zinc-900 md:bg-transparent  bottom-0 md:bottom-auto fixed md:top-0 z-[3]`}
     >
       <div className="container">
-        <DesktopNavbar setShowSearch={setShowSearch} items={items} />
-        <MobileNavbar setShowSearch={setShowSearch} items={items} />
+        <DesktopNavbar
+          setShowSearch={setShowSearch}
+          items={items}
+          searchInput={searchInput}
+        />
+        <MobileNavbar
+          setShowSearch={setShowSearch}
+          items={items}
+          searchInput={searchInput}
+        />
         <SideBar />
       </div>
     </nav>

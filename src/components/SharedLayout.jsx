@@ -15,14 +15,13 @@ const SharedLayout = () => {
         <Header />
 
         <motion.div
-          // className={`py-5`}
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
           {checkingPathname ? <Categories /> : null}
-          <div className="main py-5">
+          <div className="main pt-5 pb-28 md:py-10">
             <Outlet />
           </div>
         </motion.div>

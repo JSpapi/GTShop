@@ -6,6 +6,7 @@ import { routes } from "./routes";
 import { NetworkError, SharedLayout } from "./components";
 import { loader } from "./assets";
 function App() {
+  
   const location = useLocation();
   const { error, isLoading } = getContext();
 
