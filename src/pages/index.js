@@ -9,6 +9,7 @@ import CartPage from "./CartPage";
 import Reviews from "./Reviews";
 import CyberSport from "./CyberSport";
 import Products from "./Products";
+import ProductInfo from "./ProductInfo";
 
 export {
   Comunity,
@@ -22,4 +23,5 @@ export {
   Reviews,
   CyberSport,
   Products,
+  ProductInfo,
 };

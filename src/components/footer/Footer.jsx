@@ -29,9 +29,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            {/* <p className={`font-light text-[13px] mt-5`}>
-                {new Date().getFullYear()} &copy; Ahror Kurban
-              </p> */}
           </div>
           <div className={``}>
             <h4
@@ -48,6 +45,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-full text-center pb-3">
+        <p className={`font-light text-[13px]`}>
+          {new Date().getFullYear()} &copy; Ahror Kurban
+        </p>
       </div>
     </footer>
   );

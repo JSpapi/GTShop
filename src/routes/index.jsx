@@ -9,6 +9,7 @@ import {
   Reviews,
   Sales,
   Searched,
+  ProductInfo
 } from "../pages";
 
 export const routes = [
@@ -22,4 +23,5 @@ export const routes = [
   { id: "page-8", path: "/reviews", element: <Reviews /> },
   { id: "page-9", path: "/cybersport", element: <CyberSport /> },
   { id: "page-10", path: "/products", element: <Products /> },
+  { id: "page-10", path: "/products/:chosenProduct", element: <ProductInfo /> },
 ];

@@ -12,7 +12,6 @@ const Searched = () => {
     );
   }, [search]);
 
-  console.log(searchedProducts);
   return (
     <div>
       <div className="container">

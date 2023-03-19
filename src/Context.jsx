@@ -17,6 +17,7 @@ const Context = ({ children }) => {
   const [productsPage, setProductsPage] = useState(1);
   const [salesPage, setSalesPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [NavbarBg, setNavbarBg] = useState(false);
   // !GETTING DATA AND HANDLING ERRORS
   const [fetchProducts, error, isLoading] = UseFetching(async () => {
     const response = await FetchServices.getAll();
@@ -39,6 +40,20 @@ const Context = ({ children }) => {
   // !FETCHING DATA
   useEffect(() => {
     fetchProducts();
+  }, []);
+
+  // !SETTING NAVBAR BG DEPENDING ON SCREEN SCROLL
+  const setNavbarBgColor = () => {
+    if (window.innerWidth < 768) {
+      setNavbarBg(true);
+    } else {
+      window.scrollY > 0 ? setNavbarBg(true) : setNavbarBg(false);
+    }
+  };
+
+  useEffect(() => {
+    setNavbarBgColor();
+    window.addEventListener("scroll", setNavbarBgColor);
   }, []);
   const socialMedia = [
     {
@@ -88,6 +103,8 @@ const Context = ({ children }) => {
         salesPageProducts,
         searchQuery,
         setSearchQuery,
+        NavbarBg,
+        setNavbarBg,
       }}
     >
       {children}

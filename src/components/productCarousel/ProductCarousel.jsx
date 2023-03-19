@@ -4,19 +4,10 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import { FreeMode } from "swiper";
 import { NavLink } from "react-router-dom";
-import ProductBtn from "../ui/button/ProductBtn";
 import { useCart } from "react-use-cart";
 import { motion } from "framer-motion";
+import AddRemoveBtn from "../ui/button/AddRemoveBtn";
 const ProductCarousel = ({ products }) => {
-  const { addItem, getItem, removeItem } = useCart();
-  const removeProduct = (e, id) => {
-    e.preventDefault();
-    return removeItem(id);
-  };
-  const addProduct = (e, product) => {
-    e.preventDefault();
-    return addItem({ ...product, id: product._id });
-  };
 
   return (
     <Swiper
@@ -61,25 +52,7 @@ const ProductCarousel = ({ products }) => {
                 <p className=" my-2 text-white text-[16px] leading-[20px] font-bold">
                   ${product.price} USD
                 </p>
-                {!getItem(product._id) ? (
-                  <ProductBtn
-                    style={{ marginTop: 10 }}
-                    onClick={(e) => addProduct(e, product)}
-                  >
-                    Добавить в корзину
-                  </ProductBtn>
-                ) : (
-                  <ProductBtn
-                    style={{
-                      marginTop: 10,
-                      background: "#bb0808",
-                      color: "#fff",
-                    }}
-                    onClick={(e) => removeProduct(e, product._id)}
-                  >
-                    Удалить из Корзины
-                  </ProductBtn>
-                )}
+                <AddRemoveBtn product={product} />
               </div>
             </motion.div>
           </NavLink>

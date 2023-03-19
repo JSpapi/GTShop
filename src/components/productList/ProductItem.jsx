@@ -1,21 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { NavLink, useLocation } from "react-router-dom";
-import ProductBtn from "../ui/button/ProductBtn";
-import { useCart } from "react-use-cart";
+import AddRemoveBtn from "../ui/button/AddRemoveBtn";
 
 const ProductItem = ({ product }) => {
-  const { addItem, getItem, removeItem } = useCart();
   const { pathname } = useLocation();
 
-  const removeProduct = (e, id) => {
-    e.preventDefault();
-    return removeItem(id);
-  };
-  const addProduct = (e, product) => {
-    e.preventDefault();
-    return addItem({ ...product, id: product._id });
-  };
   return (
     <NavLink to={`/products/${product._id}`}>
       <motion.div
@@ -50,26 +40,7 @@ const ProductItem = ({ product }) => {
               ${30} USD
             </p>
           ) : null}
-
-          {!getItem(product._id) ? (
-            <ProductBtn
-              style={{ marginTop: 10 }}
-              onClick={(e) => addProduct(e, product)}
-            >
-              Добавить в корзину
-            </ProductBtn>
-          ) : (
-            <ProductBtn
-              style={{
-                marginTop: 10,
-                background: "#bb0808",
-                color: "#fff",
-              }}
-              onClick={(e) => removeProduct(e, product._id)}
-            >
-              Удалить из Корзины
-            </ProductBtn>
-          )}
+          <AddRemoveBtn product={product} />
         </div>
       </motion.div>
     </NavLink>

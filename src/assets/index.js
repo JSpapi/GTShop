@@ -10,6 +10,7 @@ import keyboards from "./images/categories/keybords.png";
 import mice from "./images/categories/mice.png";
 import headsets from "./images/categories/headsets.png";
 import streaming from "./images/categories/streaming.png";
+import cart from "./images/cart.png";
 
 export {
   mainBg,
@@ -23,4 +24,5 @@ export {
   headsets,
   streaming,
   loader,
+  cart,
 };

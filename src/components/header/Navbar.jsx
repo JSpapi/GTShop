@@ -73,9 +73,21 @@ const DesktopNavbar = ({ setShowSearch, items }) => {
             onClick={() => setShowSearch(true)}
           />
         </button>
-        <NavLink to={`/cartPage`}>
+        <NavLink
+          className={`relative`}
+          to={`/cartPage`}
+          onClick={() => scrollTo({ top: 0 })}
+        >
           <BsFillCartFill size={20} cursor="pointer" />
-          <span>{items.length}</span>
+          <span
+            className={`absolute right-[-10px] ${
+              items.length ? "block" : "hidden"
+            } top-[-15px] text-[12px] py-[1px] px-[5px] rounded-full ${
+              s.activeCart
+            } text-black font-medium`}
+          >
+            {items.length}
+          </span>
         </NavLink>
       </div>
     </div>
@@ -118,8 +130,8 @@ const MobileNavbar = ({ setShowSearch, items }) => {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "flex flex-col justify-center items-center text-active"
-                  : "flex flex-col justify-center items-center text-white"
+                  ? "flex flex-col justify-center items-center text-active relative"
+                  : "flex flex-col justify-center items-center text-white relative"
               }
               to={path}
               onClick={
@@ -130,9 +142,26 @@ const MobileNavbar = ({ setShowSearch, items }) => {
             >
               {icon}
               <span className={`xs:text-[16px] text-[14px]`}>{name}</span>
-              {id === "mobile-cart" ? <span>{items.length}</span> : null}
+              {id === "mobile-cart" ? (
+                <span
+                  className={`absolute right-[5px] ${
+                    items.length ? "block" : "hidden"
+                  }  top-[-8px] text-[12px] py-[1px] px-[5px] rounded-full ${
+                    s.activeCart
+                  } text-black font-medium`}
+                >
+                  {items.length}
+                </span>
+              ) : null}
             </NavLink>
           </li>
+          //  {items.length ? (
+          //   <span
+          //     className={`absolute right-[-10px]  top-[-15px] text-[12px] py-[1px] px-[5px] rounded-full ${s.activeCart} text-black font-medium`}
+          //   >
+          //     {items.length}
+          //   </span>
+          // ) : null}
         ))}
       </ul>
     </div>
@@ -248,12 +277,14 @@ const SideBar = () => {
 };
 
 const Navbar = () => {
-  const { setShowSearch, searchInput } = getContext();
+  const { setShowSearch, searchInput, NavbarBg, setNavbarBg } = getContext();
   const { items } = useCart();
 
   return (
     <nav
-      className={` w-full py-2 text-white bg-zinc-900 md:bg-transparent  bottom-0 md:bottom-auto fixed md:top-0 z-[3]`}
+      className={` w-full py-2 text-white ${
+        NavbarBg ? "navbarActive" : "md:bg-transparent"
+      }   bottom-0 md:bottom-auto fixed md:top-0 z-[3]`}
     >
       <div className="container">
         <DesktopNavbar
