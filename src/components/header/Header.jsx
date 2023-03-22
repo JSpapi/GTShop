@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import s from "./Header.module.scss";
 import { useLocation } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
-import { miceBg, mainBg, secondaryBg, review, logo } from "../../assets/";
+import { miceBg, mainBg, secondaryBg, review, logo, locationBg, } from "../../assets/";
 import HeaderTitle from "./HeaderTitle";
 import { getContext } from "../../Context";
 import { AnimatePresence, motion } from "framer-motion";
@@ -23,9 +23,9 @@ const Header = () => {
           background: `url(${miceBg}) no-repeat center / cover`,
           height: "90vh",
         };
-      case "/loctions":
+      case "/locations":
         return {
-          background: `url(${secondaryBg}) no-repeat center / cover`,
+          background: `url(${locationBg}) no-repeat center / cover`,
           height: "90vh",
         };
       case "/reviews":

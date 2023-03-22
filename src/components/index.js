@@ -19,6 +19,7 @@ import ChosenProduct from "./chosenProduct/ChosenProduct";
 import AddRemoveBtn from "./ui/button/AddRemoveBtn";
 import Description from "./description/Description";
 import Characteristics from "./characteristic/Characteristics";
+import Branches from "./branches/Branches";
 
 export {
   Navbar,
@@ -42,4 +43,5 @@ export {
   AddRemoveBtn,
   Description,
   Characteristics,
+  Branches,
 };

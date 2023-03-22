@@ -1,5 +1,7 @@
 import mainBg from "./images/main-bg.jpg";
 import secondaryBg from "./images/secondary-bg.jpg";
+import locationBg from "./images/location/location-header.jpg";
+
 import miceBg from "./images/mice-bg.jpg";
 import logo from "./images/logo.png";
 import loader from "./images/loader.svg";
@@ -11,6 +13,9 @@ import mice from "./images/categories/mice.png";
 import headsets from "./images/categories/headsets.png";
 import streaming from "./images/categories/streaming.png";
 import cart from "./images/cart.png";
+import branch1 from "./images/location/branch1.jpg";
+import branch2 from "./images/location/branch2.jpg";
+import branch3 from "./images/location/branch3.jpg";
 
 export {
   mainBg,
@@ -25,4 +30,8 @@ export {
   streaming,
   loader,
   cart,
+  locationBg,
+  branch1,
+  branch2,
+  branch3,
 };
