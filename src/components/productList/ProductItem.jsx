@@ -7,7 +7,7 @@ const ProductItem = ({ product }) => {
   const { pathname } = useLocation();
 
   return (
-    <NavLink to={`/products/${product._id}`}>
+    <NavLink to={`/products/${product._id}`} onClick={() => scrollTo({ top: 0 })}>
       <motion.div
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

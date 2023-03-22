@@ -18,6 +18,8 @@ const Context = ({ children }) => {
   const [salesPage, setSalesPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [NavbarBg, setNavbarBg] = useState(false);
+  const [productCharacteristics, setProductCharacteristics] =
+    useState("description");
   // !GETTING DATA AND HANDLING ERRORS
   const [fetchProducts, error, isLoading] = UseFetching(async () => {
     const response = await FetchServices.getAll();
@@ -55,6 +57,7 @@ const Context = ({ children }) => {
     setNavbarBgColor();
     window.addEventListener("scroll", setNavbarBgColor);
   }, []);
+
   const socialMedia = [
     {
       id: "instagram",
@@ -105,6 +108,8 @@ const Context = ({ children }) => {
         setSearchQuery,
         NavbarBg,
         setNavbarBg,
+        productCharacteristics,
+        setProductCharacteristics,
       }}
     >
       {children}

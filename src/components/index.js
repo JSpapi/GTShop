@@ -17,6 +17,8 @@ import CartList from "./CartList/CartList";
 import CartItem from "./CartList/CartItem";
 import ChosenProduct from "./chosenProduct/ChosenProduct";
 import AddRemoveBtn from "./ui/button/AddRemoveBtn";
+import Description from "./description/Description";
+import Characteristics from "./characteristic/Characteristics";
 
 export {
   Navbar,
@@ -38,4 +40,6 @@ export {
   CartItem,
   ChosenProduct,
   AddRemoveBtn,
+  Description,
+  Characteristics,
 };

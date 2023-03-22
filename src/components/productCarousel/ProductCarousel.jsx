@@ -8,7 +8,6 @@ import { useCart } from "react-use-cart";
 import { motion } from "framer-motion";
 import AddRemoveBtn from "../ui/button/AddRemoveBtn";
 const ProductCarousel = ({ products }) => {
-
   return (
     <Swiper
       spaceBetween={20}
@@ -30,7 +29,10 @@ const ProductCarousel = ({ products }) => {
     >
       {products.map((product) => (
         <SwiperSlide key={product._id} className={`product-card rounded-xl`}>
-          <NavLink to={`/products/${product._id}`}>
+          <NavLink
+            to={`/products/${product._id}`}
+            onClick={() => scrollTo({ top: 0 })}
+          >
             <motion.div
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
