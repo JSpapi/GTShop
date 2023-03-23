@@ -26,11 +26,6 @@ const DesktopNavbar = ({ setShowSearch, items }) => {
       name: "Локации",
     },
     {
-      id: "comunity",
-      path: "/comunity",
-      name: "Сообщество",
-    },
-    {
       id: "reviews",
       path: "/reviews",
       name: "Отзывы",
@@ -175,11 +170,6 @@ const SideBar = () => {
       id: "sidebar-locations",
       path: "/locations",
       name: "Локации",
-    },
-    {
-      id: "sidebar-comunity",
-      path: "/comunity",
-      name: "Сообщество",
     },
     {
       id: "sidebar-reviews",

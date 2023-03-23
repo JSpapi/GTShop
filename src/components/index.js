@@ -21,6 +21,7 @@ import Description from "./description/Description";
 import Characteristics from "./characteristic/Characteristics";
 import Branches from "./branches/Branches";
 import BlogersReview from "./blogersReview/BlogersReview";
+import Exchange from "./exchangeProduct/Exchange";
 
 export {
   Navbar,
@@ -46,4 +47,5 @@ export {
   Characteristics,
   Branches,
   BlogersReview,
+  Exchange,
 };

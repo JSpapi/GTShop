@@ -26,7 +26,7 @@ const BlogersReview = ({ blogersData }) => {
           pauseOnMouseEnter: true,
         }}
         modules={[EffectCreative, Autoplay]}
-        className={`mySwiper w-full md:w-[80%] blogers  cursor-pointer`}
+        className={`mySwiper w-full md:w-[80%] blogers  cursor-pointer mb-10`}
       >
         {blogersData.map((bloger) => (
           <SwiperSlide

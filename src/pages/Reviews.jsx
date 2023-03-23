@@ -1,6 +1,6 @@
 import React from "react";
 import { blogerR1, blogerR2, blogerR3 } from "../assets";
-import { BlogersReview } from "../components";
+import { BlogersReview, Exchange } from "../components";
 
 const Reviews = () => {
   const blogersData = [
@@ -30,6 +30,7 @@ const Reviews = () => {
     <div id="reviews">
       <div className="container">
         <BlogersReview blogersData={blogersData} />
+        <Exchange />
       </div>
     </div>
   );
