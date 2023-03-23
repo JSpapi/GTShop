@@ -20,6 +20,7 @@ import AddRemoveBtn from "./ui/button/AddRemoveBtn";
 import Description from "./description/Description";
 import Characteristics from "./characteristic/Characteristics";
 import Branches from "./branches/Branches";
+import BlogersReview from "./blogersReview/BlogersReview";
 
 export {
   Navbar,
@@ -44,4 +45,5 @@ export {
   Description,
   Characteristics,
   Branches,
+  BlogersReview,
 };

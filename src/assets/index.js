@@ -16,6 +16,9 @@ import cart from "./images/cart.png";
 import branch1 from "./images/location/branch1.jpg";
 import branch2 from "./images/location/branch2.jpg";
 import branch3 from "./images/location/branch3.jpg";
+import blogerR1 from "./images/reviews/rev1.webp";
+import blogerR2 from "./images/reviews/rev2.webp";
+import blogerR3 from "./images/reviews/rev3.webp";
 
 export {
   mainBg,
@@ -34,4 +37,7 @@ export {
   branch1,
   branch2,
   branch3,
+  blogerR1,
+  blogerR2,
+  blogerR3,
 };

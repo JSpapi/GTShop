@@ -64,7 +64,7 @@ footer {
   background: var(--gray-gradient);
 }
 
-.grayGrad{
+.grayGrad {
   background: var(--gray-gradient);
 }
 
@@ -80,4 +80,9 @@ footer {
   .product-card {
     background: var(--black-gradient);
   }
+}
+
+.blogers .swiper-button-prev {
+  left: -25px;
+  z-index: 10;
 }
