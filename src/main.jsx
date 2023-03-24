@@ -9,7 +9,7 @@ import Context from "./Context";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/GTShop">
+    <BrowserRouter basename="/">
       <Context>
         <App />
       </Context>
