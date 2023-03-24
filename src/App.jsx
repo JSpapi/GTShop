@@ -24,7 +24,7 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<SharedLayout />}>
-              <Route index element={<Home />} />
+              <Route exact index element={<Home />} />
               {SetRoute()}
             </Route>
           </Routes>
