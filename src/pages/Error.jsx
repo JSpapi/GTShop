@@ -10,5 +10,4 @@ const Error = () => {
     </div>
   );
 };
-//  <div>404-sorry page not found</div>;
 export default Error;

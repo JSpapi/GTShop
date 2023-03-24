@@ -1,13 +1,19 @@
 import React from "react";
 import Search from "../search/Search";
 import Navbar from "./Navbar";
-import s from "./Header.module.scss";
 import { useLocation } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
-import { miceBg, mainBg, secondaryBg, review, logo, locationBg, } from "../../assets/";
+import {
+  miceBg,
+  mainBg,
+  review,
+  logo,
+  locationBg,
+  syberSprot,
+} from "../../assets/";
 import HeaderTitle from "./HeaderTitle";
 import { getContext } from "../../Context";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -31,6 +37,11 @@ const Header = () => {
       case "/reviews":
         return {
           background: `url(${review}) no-repeat center / cover`,
+          height: "90vh",
+        };
+      case "/cybersport":
+        return {
+          background: `url(${syberSprot}) no-repeat center / cover`,
           height: "90vh",
         };
       default:

@@ -22,6 +22,7 @@ import Characteristics from "./characteristic/Characteristics";
 import Branches from "./branches/Branches";
 import BlogersReview from "./blogersReview/BlogersReview";
 import Exchange from "./exchangeProduct/Exchange";
+import CyberSportEvent from "./cyberSportEvent/CyberSportEvent";
 
 export {
   Navbar,
@@ -48,4 +49,5 @@ export {
   Branches,
   BlogersReview,
   Exchange,
+  CyberSportEvent,
 };

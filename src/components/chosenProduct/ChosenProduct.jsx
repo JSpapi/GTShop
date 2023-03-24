@@ -115,8 +115,6 @@ const ChosenProduct = ({ product }) => {
           </p>
 
           <AddRemoveBtn product={product} />
-
-          <div className="addremoce cart"></div>
         </div>
       </div>
       <div className={`rounded-md bg-slate-800 overflow-hidden`}>

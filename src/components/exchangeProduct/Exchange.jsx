@@ -7,9 +7,9 @@ const Exchange = () => {
         <iframe
           src="https://www.youtube.com/embed/mr9kK0_7x08"
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
+          allowFullScreen
           className={`w-full h-[400px] rounded-md`}
         ></iframe>
       </div>

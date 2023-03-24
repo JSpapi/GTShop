@@ -1,4 +1,5 @@
 import React from "react";
+import { networkError } from "../../assets";
 import { getContext } from "../../Context";
 
 const NetworkError = () => {
@@ -9,11 +10,7 @@ const NetworkError = () => {
         Ой что то пошло не так: {error}
       </h1>
       <div className="w-[600px] ">
-        <img
-          src="https://m.media-amazon.com/images/I/71nMCpy19UL.jpg"
-          alt="error"
-          className="w-full rounded-lg"
-        />
+        <img src={networkError} alt="error" className="w-full rounded-lg" />
       </div>
     </div>
   );

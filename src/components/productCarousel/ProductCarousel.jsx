@@ -4,9 +4,9 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import { FreeMode } from "swiper";
 import { NavLink } from "react-router-dom";
-import { useCart } from "react-use-cart";
 import { motion } from "framer-motion";
 import AddRemoveBtn from "../ui/button/AddRemoveBtn";
+
 const ProductCarousel = ({ products }) => {
   return (
     <Swiper
@@ -30,8 +30,8 @@ const ProductCarousel = ({ products }) => {
       {products.map((product) => (
         <SwiperSlide key={product._id} className={`product-card rounded-xl`}>
           <NavLink
-            to={`/products/${product._id}`}
             onClick={() => scrollTo({ top: 0 })}
+            to={`/products/${product._id}`}
           >
             <motion.div
               animate={{ opacity: 1 }}

@@ -2,7 +2,7 @@ import React from "react";
 import { Categories, Footer, Header, Navbar } from "../components";
 import { Outlet, useLocation } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 const SharedLayout = () => {
   const { pathname } = useLocation();
   const checkingPathname =

@@ -5,8 +5,8 @@ import { AnimatePresence } from "framer-motion";
 import { routes } from "./routes";
 import { NetworkError, SharedLayout } from "./components";
 import { loader } from "./assets";
+import { ToastContainer } from "react-toastify";
 function App() {
-  
   const location = useLocation();
   const { error, isLoading } = getContext();
 
@@ -21,7 +21,7 @@ function App() {
       return <NetworkError />;
     } else {
       return (
-        <AnimatePresence mode="async">
+        <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<SharedLayout />}>
               <Route index element={<Home />} />
@@ -43,6 +43,7 @@ function App() {
       ) : (
         errorHandler()
       )}
+      <ToastContainer />
     </div>
   );
 }

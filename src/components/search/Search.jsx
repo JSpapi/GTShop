@@ -37,6 +37,7 @@ const Search = () => {
               value={searchQuery}
               autoFocus
               onChange={(e) => setSearchQuery(e.target.value)}
+              required
             />
           </form>
           <button

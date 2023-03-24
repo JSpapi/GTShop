@@ -1,4 +1,3 @@
-import Comunity from "./Comunity";
 import Error from "./Error";
 import Home from "./Home";
 import Locations from "./Locations";
@@ -12,7 +11,6 @@ import Products from "./Products";
 import ProductInfo from "./ProductInfo";
 
 export {
-  Comunity,
   Error,
   Home,
   Locations,
