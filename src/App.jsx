@@ -23,7 +23,7 @@ function App() {
       return (
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<SharedLayout />}>
+            <Route path="/GTShop" element={<SharedLayout />}>
               <Route index element={<Home />} />
               {SetRoute()}
             </Route>
